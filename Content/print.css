@@ -1,0 +1,40 @@
+﻿#main
+{
+	width: 900px;
+}	
+
+.fc-header-title h2
+{
+    font-family: "Calibri ", "Comic Sans MS""";
+    font-size: 24pt;
+}
+
+.birthday
+{
+    color: Blue;
+    background-color: White;
+    border: 0;
+}
+
+.anniversary
+{
+    color: Red;
+    background-color: White;
+    border: 0;
+}
+
+.holiday
+{
+    color: Black;
+    background-color: White;
+    border: 0;
+}
+
+@media print
+{
+	.calendar
+	{
+		page-break-after: always;
+	}
+}
+

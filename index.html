@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Calendar Manager</title>
+        <link href="Content/themes/base/jquery.ui.core.css" rel="stylesheet" />
+		<link href="Content/themes/base/jquery.ui.resizable.css" rel="stylesheet" />
+		<link href="Content/themes/base/jquery.ui.selectable.css" rel="stylesheet" />
+		<!--link href="Content/themes/base/jquery.ui.accordion.css" rel="stylesheet" /-->
+		<!--link href="Content/themes/base/jquery.ui.autocomplete.css" rel="stylesheet" /-->
+		<link href="Content/themes/base/jquery.ui.button.css" rel="stylesheet" />
+		<link href="Content/themes/base/jquery.ui.dialog.css" rel="stylesheet" />
+		<!--link href="Content/themes/base/jquery.ui.slider.css" rel="stylesheet" /-->
+		<!--link href="Content/themes/base/jquery.ui.tabs.css" rel="stylesheet" /-->
+		<link href="Content/themes/base/jquery.ui.datepicker.css" rel="stylesheet" />
+		<!--link href="Content/themes/base/jquery.ui.progressbar.css" rel="stylesheet" /-->
+		<link href="Content/themes/base/jquery.ui.theme.css" rel="stylesheet" />
+        <link href="Content/fullcalendar.css" rel="stylesheet" />
+        <link href="Content/fullcalendar.print.css" media="print" rel="stylesheet" />
+        <link href="Content/Site.css" rel="stylesheet" />
+        <script src="Scripts/modernizr-2.6.2.js"></script>
+        <script src="Scripts/jquery-1.8.2.js"></script>
+        <script src="Scripts/jquery-ui-1.8.24.js"></script>
+        <script src="Scripts/fullcalendar.min.js"></script>
+        <script src="Scripts/calendar-common.js"></script>
+    </head>
+    <body>
+        <table style="width: 100%">
+			<tr>
+				<td valign="top" colspan="2">
+					<h1>
+						<span id="calendar-name"></span>'s Calendar
+					</h1>
+				</td>
+			</tr>
+			<tr>
+				<td valign="top">
+					<div id="navigation">
+						<h3>
+							Calendars
+						</h3>
+						<ul id="calendar-list" />
+					</div>
+					<div class="print-area">
+						<a href="javascript:newCalendar();">
+							New Calendar
+							<span class="ui-icon ui-icon-plus new-icon" />
+						</a>
+					</div>
+					<div class="print-area">
+						<a href="javascript:openPrintDialog();">
+							Print Calendar
+							<span class="ui-icon ui-icon-print print-icon" />
+						</a>
+					</div>
+				</td>
+				<td valign="top">
+					<div id="main">
+						<div id='calendar'></div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		
+		<!--  Edit Event Form  -->
+		<div id="edit-dialog" title="Create New Event">
+			<form>
+				<fieldset>
+					<input type="hidden" id="eventId" />
+					<label for="eventTitle">Name</label>
+					<br />
+					<input type="text" id="eventTitle" class="ui-widget-content ui-corner-all" required />
+					<br /><br />
+					<label for="eventDate">Date</label>
+					<br />
+					<input type="text" id="eventDate" class="ui-widget-content ui-corner-all" />
+					<br /><br />
+					<label for="etBirthday">Type</label>
+					<br />
+					<input type="radio" name="eventType" id="etBirthday" checked /> <label for="etBirthday">Birthday</label>
+					<br />
+					<input type="radio" name="eventType" id="etAnniversary" /> <label for="etAnniversary">Anniversary</label>
+					<br />
+					<input type="radio" name="eventType" id="etHoliday" /> <label for="etHoliday">Holiday</label>
+					<div class="validateTips"></div>
+				</fieldset>				
+			</form>
+		</div>
+		
+		<!--  Print Options  -->
+		<div id="print-options-dialog" title="Print Options">
+			<label for="print-year">Enter Year to Print Calendar for</label>
+			<br />
+			<select id="print-year">
+				<option>2016</option>
+				<option>2017</option>
+				<option>2018</option>
+				<option>2019</option>
+				<option>2020</option>
+				<option>2021</option>
+				<option selected>2022</option>
+				<option>2023</option>
+				<option>2024</option>
+				<option>2025</option>
+				<option>2026</option>
+				<option>2027</option>
+				<option>2028</option>
+				<option>2029</option>
+				<option>2030</option>
+				<option>2031</option>
+			</select>
+			<select id="print-month" disabled>
+				<option value="0">Jan</option>
+				<option value="1">Feb</option>
+				<option value="2">Mar</option>
+				<option value="3">Apr</option>
+				<option value="4">May</option>
+				<option value="5">Jun</option>
+				<option value="6">Jul</option>
+				<option value="7">Aug</option>
+				<option value="8">Sep</option>
+				<option value="9">Oct</option>
+				<option value="10">Nov</option>
+				<option value="11">Dec</option>
+			</select>
+			<br /><br />
+			<label for="">Range</label>
+			<br />
+			<input type="radio" id="print-range-year" name="print-range" checked /> <label for="print-range-year">Year</label>
+			<br />
+			<input type="radio" id="print-range-month" name="print-range" /> <label for="print-range-month">Month</label>
+		</div>
+		
+		<script src="Scripts/calendar.js"></script>
+    </body>
+</html>
